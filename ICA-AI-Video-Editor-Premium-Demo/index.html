@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ICA AI Video Editor — Demo</title>
+  <meta name="description" content="Interactive front-end demo of the ICA AI Video Editor. No video is uploaded or processed.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">ICA</div>
+        <div><strong>Ideal Client Alliance</strong><span>AI Video Editor</span></div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" type="button" data-target="workspace">Editor</button>
+        <button class="nav-item" type="button" data-target="production">Production</button>
+      </nav>
+
+      <div class="sidebar-note">
+        <span>Public Demo</span>
+        <p>Experience the VIDEO Editor. Ideal Client Alliance Practical AI for Real Business Growth</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="kicker">ICA AI VIDEO EDITOR</p>
+          <h1>Turn a raw video into a production ready plan.</h1>
+        </div>
+        <span class="demo-badge">Interactive Demo</span>
+      </header>
+
+      <section class="workspace" id="workspace">
+        <div class="stage">
+          <div class="upload-wrap">
+            <input id="fileInput" type="file" accept="video/*" hidden>
+            <button class="upload-zone" id="uploadZone" type="button">
+              <span class="upload-icon">↑</span>
+              <strong>Drop your video here</strong>
+              <small>or click to choose a file</small>
+            </button>
+
+            <div class="file-card" id="fileCard" hidden>
+              <div class="file-icon">▶</div>
+              <div class="file-copy">
+                <strong id="fileName">video.mp4</strong>
+                <span id="fileMeta">Video selected locally</span>
+              </div>
+              <button class="remove-btn" id="removeBtn" type="button" aria-label="Remove video">×</button>
+            </div>
+          </div>
+
+          <div class="section-divider"></div>
+
+          <div class="direction-block" id="production">
+            <div class="section-head">
+              <div>
+                <p class="kicker">PRODUCTION DIRECTION</p>
+                <h2>What should this video do?</h2>
+              </div>
+            </div>
+
+            <div class="intent-row" id="intentRow">
+              <button type="button" data-intent="Teach">Teach</button>
+              <button type="button" data-intent="Sell">Sell</button>
+              <button type="button" data-intent="Story">Tell a story</button>
+              <button type="button" data-intent="Inspire">Inspire</button>
+            </div>
+
+            <div class="settings">
+              <label><input type="checkbox" checked><span>Animated captions</span></label>
+              <label><input type="checkbox" checked><span>Remove long pauses</span></label>
+              <label><input type="checkbox" checked><span>Visual emphasis</span></label>
+              <label><input type="checkbox" checked><span>Vertical format</span></label>
+            </div>
+
+            <button class="primary-btn" id="produceBtn" type="button" disabled>Produce My Video</button>
+            <p class="helper" id="helper">Upload a video and choose a direction.</p>
+          </div>
+        </div>
+
+        <aside class="preview-panel">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <div class="preview-empty" id="previewEmpty">
+                <span>▶</span>
+                <p>Your selected video will appear here.</p>
+              </div>
+              <video id="videoPreview" controls playsinline hidden></video>
+            </div>
+          </div>
+
+          <div class="preview-copy">
+            <p class="kicker">WHAT ICA PREPARES</p>
+            <ul>
+              <li>Cleaner pacing</li>
+              <li>Captions and emphasis</li>
+              <li>Vertical social format</li>
+              <li>Production-ready structure</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+
+      <section class="processing" id="processingPanel" hidden>
+        <div class="processing-inner">
+          <div class="processing-head">
+            <div>
+              <p class="kicker">ICA PRODUCTION</p>
+              <h2 id="processingTitle">Analysing your video</h2>
+              <p id="processingMessage">Preparing the production sequence.</p>
+            </div>
+            <strong id="progressPercent">0%</strong>
+          </div>
+          <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+          <div class="processing-steps">
+            <span>Analyse</span><span>Pacing</span><span>Captions</span><span>Visuals</span><span>Ready</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="upgradeModal" hidden>
+    <div class="upgrade-modal" role="dialog" aria-modal="true" aria-labelledby="upgradeTitle">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close">×</button>
+      <p class="kicker">GET THE ICA NEXT STEP</p>
+      <h2 id="upgradeTitle">Get my AI video strategy by email</h2>
+      <p>Enter your details and ICA will send the next step for turning your content into a practical system.</p>
+
+      <form class="lead-form" id="leadForm" novalidate>
+        <div class="lead-field">
+          <label for="leadName">Full name</label>
+          <input id="leadName" name="full_name" type="text" placeholder="Your full name" required>
+        </div>
+
+        <div class="lead-field">
+          <label for="leadEmail">Email</label>
+          <input id="leadEmail" name="email" type="email" placeholder="you@example.com" required>
+        </div>
+
+        <button class="primary-btn modal-cta" id="submitLeadBtn" type="submit">Get My ICA Strategy</button>
+        <p class="lead-status" id="leadStatus" aria-live="polite"></p>
+      </form>
+
+      <button class="text-btn" id="keepDemoBtn" type="button">Keep exploring the demo</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
